@@ -18,10 +18,7 @@ class Clhep < Formula
 
   depends_on "cmake" => :build
 
-  needs :cxx11
-
   def install
-    ENV.cxx11
     mkdir "clhep-build" do
       system "cmake", "../CLHEP", *std_cmake_args
       system "make", "install"
@@ -55,15 +52,14 @@ __END__
 --- a/CLHEP/Matrix/src/Vector.cc.orig
 +++ b/CLHEP/Matrix/src/Vector.cc
 @@ -114,9 +114,9 @@ HepVector::HepVector(const HepMatrix &hm1)
- 
+
  // trivial methods
- 
--inline int HepVector::num_row() const {return nrow;} 
--inline int HepVector::num_size() const {return nrow;} 
+
+-inline int HepVector::num_row() const {return nrow;}
+-inline int HepVector::num_size() const {return nrow;}
 -inline int HepVector::num_col() const { return 1; }
 +int HepVector::num_row() const {return nrow;}
 +int HepVector::num_size() const {return nrow;}
 +int HepVector::num_col() const { return 1; }
- 
+
  // operator()
- 

@@ -11,10 +11,7 @@ class Xrootd < Formula
   depends_on "python@2"
   depends_on "readline"
 
-  needs :cxx11
-
   def install
-    ENV.cxx11
     mkdir "build" do
       system "cmake", "..", "-DCMAKE_INSTALL_LIBDIR=#{lib}", "-DENABLE_FUSE=OFF", "-DENABLE_KRB5=OFF", *std_cmake_args
       system "make", "install"

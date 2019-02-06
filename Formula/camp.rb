@@ -9,10 +9,7 @@ class Camp < Formula
   depends_on "doxygen" => [:optional, :build]
   depends_on "supernemo-dbd/cadfael/boost"
 
-  needs :cxx11
-
   def install
-    ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make"
     system "make", "doc" if build.with? "doxygen"
