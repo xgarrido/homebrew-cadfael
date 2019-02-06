@@ -9,9 +9,8 @@ class FalaiseAT2 < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "supernemo-dbd/cadfael/bayeux@2"
-
   # Bayeux dependency pulls in all additional deps of Falaise at present
+  depends_on "supernemo-dbd/cadfael/bayeux@2"
 
   def install
     mkdir "falaise.build" do
