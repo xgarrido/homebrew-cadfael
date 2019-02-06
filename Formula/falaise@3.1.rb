@@ -17,10 +17,7 @@ class FalaiseAT31 < Formula
   end
   # Bayeux dependency pulls in all additional deps of Falaise at present
 
-  needs :cxx11
-
   def install
-    ENV.cxx11
     mkdir "falaise.build" do
       fl_cmake_args = std_cmake_args
       fl_cmake_args << "-DCMAKE_INSTALL_LIBDIR=lib"

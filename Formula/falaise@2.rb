@@ -11,12 +11,9 @@ class FalaiseAT2 < Formula
   depends_on "doxygen" => :build
   depends_on "supernemo-dbd/cadfael/bayeux@2"
 
-  needs :cxx11
-
   # Bayeux dependency pulls in all additional deps of Falaise at present
 
   def install
-    ENV.cxx11
     mkdir "falaise.build" do
       fl_cmake_args = std_cmake_args
       fl_cmake_args << "-DCMAKE_INSTALL_LIBDIR=lib"
