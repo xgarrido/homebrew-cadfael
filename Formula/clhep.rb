@@ -4,14 +4,17 @@ class Clhep < Formula
   revision 1
 
   stable do
-    url "http://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.1.3.tgz"
-    sha256 "27c257934929f4cb1643aa60aeaad6519025d8f0a1c199bc3137ad7368245913"
+    url "http://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.1.3.1.tgz"
+    sha256 "5d3e45b39a861731fe3a532bb1426353bf62b54c7b90ecf268827e50f925642b"
+
+    # Patch for clang compatibility, adapted from MacPorts
+    patch :DATA
   end
 
-  # devel do
-  #   url "http://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.3.1.0.tgz"
-  #   sha256 "66272ae3100d3aec096b1298e1e24ec25b80e4dac28332b45ec3284023592963"
-  # end
+  devel do
+    url "http://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.3.1.0.tgz"
+    sha256 "66272ae3100d3aec096b1298e1e24ec25b80e4dac28332b45ec3284023592963"
+  end
 
   depends_on "cmake" => :build
 
@@ -43,3 +46,20 @@ class Clhep < Formula
 end
 
 __END__
+# https://savannah.cern.ch/bugs/?104110
+# https://trac.macports.org/ticket/42841
+#
+--- a/CLHEP/Matrix/src/Vector.cc.orig
++++ b/CLHEP/Matrix/src/Vector.cc
+@@ -114,9 +114,9 @@ HepVector::HepVector(const HepMatrix &hm1)
+
+ // trivial methods
+
+-inline int HepVector::num_row() const {return nrow;}
+-inline int HepVector::num_size() const {return nrow;}
+-inline int HepVector::num_col() const { return 1; }
++int HepVector::num_row() const {return nrow;}
++int HepVector::num_size() const {return nrow;}
++int HepVector::num_col() const { return 1; }
+
+ // operator()
