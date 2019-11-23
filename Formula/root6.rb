@@ -23,8 +23,8 @@ class Root6 < Formula
   depends_on "openssl"
   depends_on "python@2"
   depends_on "sqlite"
-  depends_on "supernemo-dbd/cadfael/gsl"
-  depends_on "supernemo-dbd/cadfael/xrootd"
+  depends_on "xgarrido/cadfael/gsl"
+  depends_on "xgarrido/cadfael/xrootd"
   depends_on "xz" # For LZMA
 
   conflicts_with "root", :because => "SuperNEMO requires custom root build"

@@ -7,7 +7,7 @@ class Camp < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => [:optional, :build]
-  depends_on "supernemo-dbd/cadfael/boost"
+  depends_on "xgarrido/cadfael/boost"
 
   def install
     system "cmake", ".", *std_cmake_args

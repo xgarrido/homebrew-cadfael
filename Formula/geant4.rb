@@ -39,8 +39,8 @@ class Geant4 < Formula
 
   depends_on "cmake" => :build
   depends_on "expat" if OS.linux?
-  depends_on "supernemo-dbd/cadfael/clhep"
-  depends_on "supernemo-dbd/cadfael/xerces-c"
+  depends_on "xgarrido/cadfael/clhep"
+  depends_on "xgarrido/cadfael/xerces-c"
 
   def install
     mkdir "geant4-build" do
