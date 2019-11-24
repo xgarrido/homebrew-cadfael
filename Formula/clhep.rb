@@ -20,9 +20,10 @@ class Clhep < Formula
   depends_on "cmake" => :build
 
   def install
-    ENV.cxx11
     mkdir "clhep-build" do
-      system "cmake", "../CLHEP", *std_cmake_args
+      args = std_cmake_args
+      args << "-DCMAKE_CXX_FLAGS=-std=c++11"
+      system "cmake", "../CLHEP", *args
       system "make", "install"
     end
   end
@@ -46,5 +47,3 @@ class Clhep < Formula
                  shell_output("./test").chomp
   end
 end
-
-__END__
