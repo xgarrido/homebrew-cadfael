@@ -7,8 +7,8 @@ class Clhep < Formula
     url "http://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.1.3.1.tgz"
     sha256 "5d3e45b39a861731fe3a532bb1426353bf62b54c7b90ecf268827e50f925642b"
     patch do
-      url "https://owncloud.lal.in2p3.fr/index.php/s/eRvPTsNIsuTzHy0/download"
-      sha256 "7f84a23342f4013cd970881bcb99cb3a1b4c0abd78b011782b2562888522113c"
+      url "https://owncloud.lal.in2p3.fr/index.php/s/JIgyG3xnUxotSSx/download"
+      sha256 "7f9def9921cb5d6b22d07360bd3cdafcafad8e581a24d87b412b9a8183c423b5"
     end
   end
 
