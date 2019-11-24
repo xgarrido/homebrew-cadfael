@@ -20,6 +20,7 @@ class Clhep < Formula
   depends_on "cmake" => :build
 
   def install
+    ENV.cxx11
     mkdir "clhep-build" do
       system "cmake", "../CLHEP", *std_cmake_args
       system "make", "install"
